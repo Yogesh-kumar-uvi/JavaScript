@@ -35,3 +35,4 @@ const result2 = add(11,22,33,...nums)
 console.log(result2)
 
 
+
