@@ -8,8 +8,9 @@ const colors = ['red','green','black','yellow','pink']
 
 //Es6 destructuring👇
 
-const [clr1, b,c,d ,e] = colors
-console.log("first:", clr1, "second:",b, "third:",c, "fourth:",d, "fifth:",e)
+// const [clr1, b,c,d ,e] = colors
+// const [,,,,color4] = colors
+// console.log("first:", clr1, "second:",b, "third:",c, "fourth:",d, "fifth:",e)
 
 
 
@@ -25,4 +26,9 @@ const user = {
 }
 
 
+// const age= user.age
+// const name= user.name
 
+const{name,age} = user
+
+const vill = user.address.vill
