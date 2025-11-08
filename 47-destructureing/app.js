@@ -9,26 +9,42 @@ const colors = ['red','green','black','yellow','pink']
 //Es6 destructuring👇
 
 // const [clr1, b,c,d ,e] = colors
-// const [,,,,color4] = colors
+// const {4:clr,2:clr1} = colors
 // console.log("first:", clr1, "second:",b, "third:",c, "fourth:",d, "fifth:",e)
 
-
-
-
 const user = {
-    name:'yogesh',
+    name:'Yogesh',
     age: 23,
     address:{
-        vill :'lucknow',
-        state:'up',
-        pinCode:12345
+        vill :'Lucknow',
+        state:'UP',
+        city:'LKO',
+        pinCodes:{
+            pincode1:12345,
+            pincode2: 45678
+        },
     },
 }
 
-
 // const age= user.age
 // const name= user.name
+// const{name,age} = user
+// const {address:{city}} = user
+// const{address:{pinCodes:{pincode2,pincode1}}} = user
 
-const{name,age} = user
 
-const vill = user.address.vill
+// function intro({name,address:{vill,city,state,pinCodes:{pincode2}}}){
+// console.log(name,vill,city,state,pincode2)
+// }  
+// intro(user)
+
+// function intro({age,name,address}){
+// console.log(age,name,address)
+// }
+
+// intro(user)
+
+function printColors([a,b,,e,d]){
+console.log([a,b,,e,d])
+}
+printColors(colors)
