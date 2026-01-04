@@ -3,6 +3,11 @@ h1.style.color = 'green';
 
 const paragraph = document.querySelector('p')
 paragraph.style.color = 'hotpink';
+// paragraph.innerText = "Ye naya paragraph text hai";
+// paragraph.textContent = "Updated content";
+// paragraph.innerText += " — ye extra text hai";
+
+
 
 const anchorTags = document.querySelectorAll('a')
 
