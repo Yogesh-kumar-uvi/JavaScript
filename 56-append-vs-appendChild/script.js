@@ -15,5 +15,5 @@ const card = document.querySelector(".card")
 
 const newTextNode = document.createTextNode('Hello World')
 
-// container.appendChild(newTextNode)
+container.appendChild(newTextNode)
 container.appendChild(newTextNode,h1)
