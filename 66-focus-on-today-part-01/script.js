@@ -2,15 +2,19 @@ const checkBoxList = document.querySelectorAll('.custom-checkbox')
 const inputFields = document.querySelectorAll('.goal-input')
 const errorLebel = document.querySelector('.error-label')
 const progressBar = document.querySelector('.progress-bar')
+const progressValue = document.querySelector('.progress-value')
 
 checkBoxList.forEach((checkbox) => {
     checkbox.addEventListener('click', (e) => {
-        const completedgoals = [...inputFields].every(function (input) {
+        const allGoalsAdded = [...inputFields].every(function (input) {
             return input.value
         })
-        if (completedgoals) {
+
+        if (allGoalsAdded) {
             checkbox.parentElement.classList.toggle('completed')
-        } else {
+            progressValue.style.width = '33.33%'
+        } 
+        else {
             progressBar.classList.add('show-error')
         }
     })
