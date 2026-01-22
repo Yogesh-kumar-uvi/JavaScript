@@ -1,18 +1,51 @@
 const nameElement = document.querySelector('.name-tag')
 const nameInput = document.querySelector('.name')
+const ageElement = document.querySelector('.age-tag')
+const ageInput = document.querySelector('.age')
 
 // nameElement.innerText = localStorage.myName
 
-// besttarika
-nameElement.innerText = localStorage.getItem('myName')
+// nameElement.innerText = localStorage.getItem('myName')
 
-nameInput.addEventListener('input', (e) => {
-    // best way
-    localStorage.setItem('myName',e.target.value)
-    
-    // localStorage.myName = e.target.value;
-    nameElement.innerText = localStorage.myName
+// nameInput.addEventListener('input', (e) => {
+//     localStorage.setItem('myName',e.target.value)
+//     // localStorage.myName = e.target.value;
+//     nameElement.innerText = localStorage.myName
+// })
+
+// ageElement.innerText = localStorage.getItem('myAge')
+
+// ageInput.addEventListener('input', (e) => {
+//     localStorage.setItem('myAge',e.target.value)
+//     ageElement.innerText = localStorage.myAge
+// })
+
+//----------------------------------------------------------------------------------------------------------------------------------
+
+const myData = JSON.parse(localStorage.getItem('myData')) || {} 
+
+//for not showing undefined data when local storage is empaty
+
+if(myData.name){
+    nameElement.innerText = myData.name
+}
+if(myData.age){
+    ageElement.innerText = myData.age
+}
+
+nameInput.addEventListener('input',(e) => {
+    myData.name = e.target.value
+    localStorage.setItem('myData',JSON.stringify(myData))
+    nameElement.innerText = e.target.value
 })
 
+ageInput.addEventListener('input',(e) => {
+    if (ageInput.value < 1) {
+        ageInput.value = ''
+    }
+    myData.age = e.target.value
+    localStorage.setItem('myData', JSON.stringify(myData))
+    ageElement.innerText = e.target.value
+})
 
 
