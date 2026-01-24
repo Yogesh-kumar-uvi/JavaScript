@@ -5,6 +5,8 @@ const progressBar = document.querySelector('.progress-bar')
 const progressValue = document.querySelector('.progress-value')
 
 const allGoals = JSON.parse(localStorage.getItem('allGoals'))|| {}
+let completedGoalsCount =  Object.values(allGoals).filter((goal)=> goal.completed).length
+ progressValue.style.width = `${completedGoalsCount / 3 * 100 }%`
 
 checkBoxList.forEach((checkbox) => {
     checkbox.addEventListener('click', (e) => {
@@ -14,9 +16,10 @@ checkBoxList.forEach((checkbox) => {
 
         if (allGoalsAdded) {
             checkbox.parentElement.classList.toggle('completed')
-            progressValue.style.width = '33.33%'
             const inputId = checkbox.nextElementSibling.id
             allGoals[inputId].completed =  !allGoals[inputId].completed
+            completedGoalsCount =  Object.values(allGoals).filter((goal)=> goal.completed).length
+            progressValue.style.width = `${completedGoalsCount / 3 * 100 }%`
             localStorage.setItem('allGoals',JSON.stringify(allGoals))
         } 
         else {
