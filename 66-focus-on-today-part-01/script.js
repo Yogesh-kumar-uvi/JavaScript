@@ -11,7 +11,13 @@ const allQuotes = [
     'whoa! you just completed all goals ,time for chill'
 ]
 
-const allGoals = JSON.parse(localStorage.getItem('allGoals')) ||  {}
+const allGoals = JSON.parse(localStorage.getItem('allGoals')) ||{
+    first:  { name: '', completed: false },
+    second: { name: '', completed: false },
+    third:  { name: '', completed: false }
+}
+
+
 let completedGoalsCount = Object.values(allGoals).filter(
     (goal) => goal.completed).length
 
@@ -43,26 +49,7 @@ checkBoxList.forEach((checkbox) => {
     })
 })
 
-// inputFields.forEach((input) => {
-//     input.value = allGoals[input.id].name
-//     if (allGoals[input.id].completed) {
-//         input.parentElement.classList.add('completed')
-//     }
-//     input.addEventListener('focus', () => {
-//         progressBar.classList.remove('show-error')
-//     })
-//     input.addEventListener('input', (e) => {
-//         if (allGoals[input.id].completed) {
-//             e.target.value = allGoals[input.id].name
-//             return
-//         }
-//         allGoals[input.id] = {
-//             name: input.value,
-//             completed: false
-//         }
-//         localStorage.setItem('allGoals', JSON.stringify(allGoals))
-//     })
-// })
+
 
 inputFields.forEach((input) => {
     if (allGoals[input.id]) {
