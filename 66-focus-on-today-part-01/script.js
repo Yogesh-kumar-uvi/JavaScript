@@ -50,7 +50,6 @@ checkBoxList.forEach((checkbox) => {
 })
 
 
-
 inputFields.forEach((input) => {
     if (allGoals[input.id]) {
         input.value = allGoals[input.id].name
@@ -70,10 +69,8 @@ inputFields.forEach((input) => {
             return
         }
 
-        allGoals[input.id] = {
-            name: input.value,
-            completed: false
-        }
+        allGoals[input.id].name =  input.value,
+            
 
         localStorage.setItem('allGoals', JSON.stringify(allGoals))
     })
