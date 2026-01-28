@@ -25,19 +25,6 @@ let completedGoalsCount = Object.values(allGoals).filter(
     (goal) => goal.completed
 ).length
 
-addInput.addEventListener('click', () => {
-    const firstGoal = document.querySelector('.goal-container')
-    const clone = firstGoal.cloneNode(true)
-
-    const input = clone.querySelector('.goal-input')
-    input.value = ''
-    input.id = `goal-${Date.now()}`
-
-    clone.classList.remove('completed')
-
-    addInput.before(clone)
-})
-
 
 progressValue.style.width = `${(completedGoalsCount / inputFields.length) * 100}%`
 progressValue.firstElementChild.innerText = `${completedGoalsCount}/${inputFields.length} completed`
