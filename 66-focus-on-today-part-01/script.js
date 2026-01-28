@@ -1,29 +1,47 @@
 const checkBoxList = document.querySelectorAll('.custom-checkbox')
 const inputFields = document.querySelectorAll('.goal-input')
 const errorLabel = document.querySelector('.error-label')
-const progresslabel = document.querySelector('.progress-label')
+const progressLabel = document.querySelector('.progress-label')
 const progressBar = document.querySelector('.progress-bar')
 const progressValue = document.querySelector('.progress-value')
+const addInput = document.querySelector('.add-goal-btn')
+
 const allQuotes = [
-    'Raise the bar by completing your goals',
+    'Raise the bar by completing your goals!',
     'Well begun is half done!',
     'Just a step away, keep going!',
-    'whoa! you just completed all goals ,time for chill'
+    'Whoa! You just completed all the goals, time for chill',
 ]
 
-const allGoals = JSON.parse(localStorage.getItem('allGoals')) ||{
-    first:  { name: '', completed: false },
-    second: { name: '', completed: false },
-    third:  { name: '', completed: false }
-}
+// const allGoals = JSON.parse(localStorage.getItem('allGoals')) ||{ 
+ // first: { name: '', completed: false }, 
+ // second: { name: '', completed: false }, 
+ // third: { name: '', completed: false }
+ // }
 
+const allGoals = JSON.parse(localStorage.getItem('allGoals')) || {}
 
 let completedGoalsCount = Object.values(allGoals).filter(
-    (goal) => goal.completed).length
+    (goal) => goal.completed
+).length
 
-progressValue.style.width = `${completedGoalsCount / 3 * 100}%`
-progressValue.firstElementChild.innerText = `${completedGoalsCount}/3 completed`
-progresslabel.innerText = allQuotes[completedGoalsCount]
+addInput.addEventListener('click', () => {
+    const firstGoal = document.querySelector('.goal-container')
+    const clone = firstGoal.cloneNode(true)
+
+    const input = clone.querySelector('.goal-input')
+    input.value = ''
+    input.id = `goal-${Date.now()}`
+
+    clone.classList.remove('completed')
+
+    addInput.before(clone)
+})
+
+
+progressValue.style.width = `${(completedGoalsCount / inputFields.length) * 100}%`
+progressValue.firstElementChild.innerText = `${completedGoalsCount}/${inputFields.length} completed`
+progressLabel.innerText = allQuotes[completedGoalsCount]
 
 checkBoxList.forEach((checkbox) => {
     checkbox.addEventListener('click', (e) => {
@@ -36,19 +54,19 @@ checkBoxList.forEach((checkbox) => {
             const inputId = checkbox.nextElementSibling.id
             allGoals[inputId].completed = !allGoals[inputId].completed
             completedGoalsCount = Object.values(allGoals).filter(
-                (goal) => goal.completed).length
+                (goal) => goal.completed
+            ).length
 
-            progressValue.style.width = `${completedGoalsCount / 3 * 100}%`
-            progressValue.firstElementChild.innerText = `${completedGoalsCount}/3 completed`
-            progresslabel.innerText = allQuotes[completedGoalsCount]
+            progressValue.style.width = `${(completedGoalsCount / inputFields.length) * 100}%`
+            progressValue.firstElementChild.innerText = `${completedGoalsCount}/${inputFields.length} completed`
+            progressLabel.innerText = allQuotes[completedGoalsCount]
+
             localStorage.setItem('allGoals', JSON.stringify(allGoals))
-        }
-        else {
+        } else {
             progressBar.classList.add('show-error')
         }
     })
 })
-
 
 inputFields.forEach((input) => {
     if (allGoals[input.id]) {
@@ -65,13 +83,21 @@ inputFields.forEach((input) => {
 
     input.addEventListener('input', (e) => {
         if (allGoals[input.id] && allGoals[input.id].completed) {
-            e.target.value = allGoals[input.id].name
+            input.value = allGoals[input.id].name
             return
         }
 
-        allGoals[input.id].name =  input.value,
-            
+        if (allGoals[input.id]) {
+            allGoals[input.id].name = input.value
+        } else {
+            allGoals[input.id] = {
+                name: input.value,
+                completed: false,
+            }
+        }
 
         localStorage.setItem('allGoals', JSON.stringify(allGoals))
     })
 })
+
+
