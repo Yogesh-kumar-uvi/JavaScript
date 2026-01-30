@@ -48,4 +48,3 @@ ageInput.addEventListener('input',(e) => {
     ageElement.innerText = e.target.value
 })
 
-
