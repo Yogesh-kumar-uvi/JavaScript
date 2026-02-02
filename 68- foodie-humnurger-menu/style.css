@@ -1,14 +1,14 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     background-color: #f6f0eb;
-    font-family:'Poppins', sans-serif ;
+    font-family: 'Poppins', sans-serif;
 }
 
-header{
+header {
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -16,27 +16,46 @@ header{
     padding: 16px 48px;
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
-nav{
+
+nav {
     display: flex;
-    /* gap: 48px; */
 }
 
-nav a{
+nav a {
     font-weight: 700;
     font-size: 20px;
     color: #492118;
 }
-nav a + a{
+
+nav a + a {
     margin-left: 60px;
 }
-.logo{
+
+.logo {
     width: 50px;
-    height: 50px;
 }
-.logo img{
+
+.logo img {
     width: 100%;
+    display: block;
+}
+
+img {
+    width: 100%;
+}
+
+main{
+    padding: 0 24px;
+}
+.hero-section {
+    margin-top: 100px;
+}
+
+.img-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
