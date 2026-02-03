@@ -31,7 +31,7 @@ nav a {
     color: #492118;
 }
 
-nav a + a {
+nav a+a {
     margin-left: 60px;
 }
 
@@ -48,9 +48,10 @@ img {
     width: 100%;
 }
 
-main{
+main {
     padding: 0 24px;
 }
+
 .hero-section {
     margin-top: 100px;
 }
@@ -58,4 +59,31 @@ main{
 .img-container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.hero-section p {
+    font-size: 24px;
+    font-weight: 200;
+    color: #492118;
+    text-align: center;
+}
+.section .img-container{
+    max-width: 1040px;
+}
+.section h2{
+    font-size: 48px;
+    font-weight: 700;
+    color: #492118;
+    text-align: center;
+    margin-bottom: 24px;
+}
+.go-to-top-btn{
+    background-color: #492118;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 24px;
+    align-items: center;
 }
