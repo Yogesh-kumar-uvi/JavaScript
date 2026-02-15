@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------
-   GLOBAL RESET + BASE SETTINGS
+GLOBAL RESET + BASE SETTINGS
 --------------------------------------------------------- */
 
 * {
@@ -22,20 +22,95 @@ main {
 
 
 .home {
-    width: 100%;
     background-color: #d7e8cc;
 }
-.home-content{
-display: flex;
-align-items: center;
-justify-content: center;
-padding-top: 40px;
+
+.home-logo {
+    width: 100%;
+    height: 358px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
 }
 
-.home-logo{
-    width: 860px;
-height: 358px;
-top: 183px;
-left: 289px;
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 58px;
+    
+}
 
+.start-btn {
+    background-color: #35BD3A;
+    width: 348px;
+    height: 114px;
+    border-radius: 16px;
+    border: none;
+    font-size: 53px;
+    font-weight: 600;
+    box-shadow: 14px 5px 5px #35BD3A;
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE DESIGN
+--------------------------------------------------------- */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .home-logo {
+        height: 300px;
+        padding-top: 30px;
+    }
+
+    .start-btn {
+        width: 280px;
+        height: 90px;
+        font-size: 40px;
+    }
+}
+
+/* Large Phones */
+@media (max-width: 768px) {
+    .home-logo {
+        height: 250px;
+        padding-top: 25px;
+    }
+
+    .home-logo img {
+        width: 70%;
+    }
+
+    .start-btn {
+        width: 240px;
+        height: 80px;
+        font-size: 32px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    .home-logo {
+        height: 200px;
+        padding-top: 20px;
+    }
+
+    .home-logo img {
+        width: 60%;
+    }
+
+    .start-btn {
+        width: 200px;
+        height: 70px;
+        font-size: 26px;
+        border-radius: 12px;
+    }
+
+    footer {
+        font-size: 14px;
+        text-align: center;
+        padding: 20px 0;
+    }
 }
