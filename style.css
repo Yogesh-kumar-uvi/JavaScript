@@ -1,4 +1,6 @@
-
+/* ---------------------------------------------------------
+   GLOBAL RESET
+--------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -17,9 +19,17 @@ main {
     position: relative;
 }
 
-.home {
-    background-color: #d7e8cc;
+section {
+    display: none;
 }
+
+section.active {
+    display: block;
+}
+
+/* ---------------------------------------------------------
+   HOME SECTION
+--------------------------------------------------------- */
 
 .home-logo {
     width: 100%;
@@ -37,7 +47,6 @@ main {
     padding-top: 58px;
 }
 
-
 .start-btn {
     width: 457px;
     height: 120px;
@@ -54,81 +63,152 @@ main {
     justify-content: center;
 }
 
-
 footer {
     position: absolute;
-    font-size:20px ;
-    font-weight: 500;
+    font-size:18px;
     bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
-    width: 364px;
-    height: 28px;
 }
 
-/*---------------------------------------------------------
-    RESPONSIVE DESIGN
+/* ---------------------------------------------------------
+   QUIZ PAGE
 --------------------------------------------------------- */
 
-/* Tablets */
-@media (max-width: 992px) {
-    .home-logo {
-        height: 260px;
-        padding-top: 20px;
-    }
-
-    .start-btn {
-        width: 300px;
-        height: auto;
-        padding: 18px 20px;
-        font-size: 38px;
-    }
+#quiz {
+    padding: 20px;
+    min-height: 100vh;
 }
 
-/* Large Phones */
-@media (max-width: 768px) {
-    .home-logo {
-        height: 240px;       
-        padding-top: 20px;
-    }
-
-    .home-logo img {
-        width: 80%;         
-    }
-
-    .start-btn {
-        width: 240px;
-        height: auto;
-        padding: 16px 20px;
-        font-size: 28px;
-        border-radius: 10px;
-        box-shadow: 0px 6px 0px #2a992f;
-    }
+.quiz-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Small Phones */
-@media (max-width: 480px) {
-    .home-logo {
-        height: 180px;      
-        padding-top: 15px;
-    }
+.quiz-title {
+    width: 150px;
+}
 
-    .home-logo img {
-        width: 100%;      
-    }
+.quiz-info {
+    font-size: 22px;
+    font-weight: 600;
+}
 
-    .start-btn {
-        width: 200px;
-        height: auto;
-        padding: 14px 16px;
-        font-size: 22px;
-        border-radius: 10px;
-        box-shadow: 0px 5px 0px #2a992f;
-    }
+#timerBox {
+    background: #E7F7E1;
+    width: 80px;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 20px auto;
+    text-align: center;
+}
 
-    footer {
-        font-size: 12px;
-        padding: 20px 0;
-    }
+#timer {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#questionBox {
+    background: #fff;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+#optionBox {
+    margin-top: 20px;
+}
+
+.option {
+    padding: 14px;
+    margin-top: 14px;
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border: 2px solid transparent;
+}
+
+.option.correct {
+    border-color: #35BD3A;
+}
+
+.option.wrong {
+    border-color: red;
+}
+
+.next-btn-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.next-btn {
+    background: #35BD3A;
+    padding: 12px 26px;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Timer background color states */
+.bg-green {
+    background: #E7F7E1 !important;
+}
+
+.bg-yellow {
+    background: #F7F5D9 !important;
+}
+
+.bg-red {
+    background: #F7D9D9 !important;
+}
+
+/* ---------------------------------------------------------
+   RESULT PAGE - LEVEL 1 BAR
+--------------------------------------------------------- */
+
+#result {
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.bar-container {
+    width: 80%;
+    height: 40px;
+    margin: 40px auto;
+    background: #F8D8D8;
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+}
+
+.bar-green {
+    height: 100%;
+    background: #35BD3A;
+}
+
+.bar-red {
+    height: 100%;
+    background: #F55;
+}
+
+.score-percent {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.feedback {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.restart {
+    margin-top: 40px;
 }

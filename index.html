@@ -1,35 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet" />
     <title>Quiz Time</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/quiz-time-favicon.ico" type="image/x-icon">
     <script src="script.js" defer></script>
 </head>
 
 <body>
+
     <main>
-        <div class="home">
-            <div class="home-content">
-                <div class="home-logo">
-                    <img src="images/Group 4 (1).svg" alt="Home logo">
-                </div>
+
+        <!-- ========== HOME SECTION ========== -->
+        <section id="home" class="active">
+            <div class="home-logo">
+                <img src="images/Group 4 (1).svg">
             </div>
             <div class="btn-container">
-                <button class="start-btn">Start Now >>></button>
+                <button id="startBtn" class="start-btn">Start Now >>></button>
             </div>
-        </div>
-        <footer>Made with ❤️ by Yogesh Kumar </footer>
+        </section>
+
+     
+        <section id="quiz">
+            <div class="quiz-header">
+                <img src="images/Group 4 (1).svg" class="quiz-title">
+
+                <div class="quiz-info">
+                    <span id="questionCount">01/25</span>
+                </div>
+            </div>
+
+            <div id="timerBox">
+                <span id="timer">30</span>
+            </div>
+
+            <div id="questionBox">
+                <p id="questionText">Question will appear here</p>
+            </div>
+
+            <div id="optionBox"></div>
+
+            <div class="next-btn-container">
+                <button id="nextBtn" class="next-btn">Next →</button>
+            </div>
+        </section>
+
+
+        <section id="result">
+            <div class="result-title">
+                <img src="images/Group 4 (1).svg">
+                <h2>Result</h2>
+            </div>
+
+            <div class="bar-container">
+                <div class="bar-green" id="barGreen"></div>
+                <div class="bar-red" id="barRed"></div>
+            </div>
+
+            <p class="score-percent"><span id="scorePercent">0%</span></p>
+
+            <p id="feedback" class="feedback">“Keep learning, you have a good score!”</p>
+
+            <div class="restart">
+                <button id="restartBtn" class="start-btn">Retry</button>
+            </div>
+        </section>
+
+       
+        <footer>Made with ❤️ by Yogesh Kumar</footer>
+
     </main>
 
 </body>
-
 </html>
