@@ -22,7 +22,6 @@ main {
 section {
     display: none;
 }
-
 section.active {
     display: block;
 }
@@ -33,27 +32,33 @@ section.active {
 
 .home-logo {
     width: 100%;
-    height: 358px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 40px;
+    padding: 40px 0;
+}
+
+.home-logo img {
+    max-width: 90%;
+    height: auto;
 }
 
 .btn-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 58px;
+    padding-top: 50px;
 }
 
 .start-btn {
-    width: 457px;
+    width: 90%;
+    max-width: 460px;
     height: 120px;
     background-color: #35BD3A;
     border-radius: 9px;
     border: none;
-    font-size: 48px;
+    font-size: clamp(28px, 6vw, 48px);
     font-weight: 600;
     color: #fff;
     cursor: pointer;
@@ -65,8 +70,8 @@ section.active {
 
 footer {
     position: absolute;
-    font-size:18px;
-    bottom: 32px;
+    font-size: clamp(12px, 2vw, 18px);
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -84,28 +89,30 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .quiz-title {
-    width: 150px;
+    width: 120px;
+    max-width: 35%;
 }
 
 .quiz-info {
-    font-size: 22px;
+    font-size: clamp(16px, 4vw, 22px);
     font-weight: 600;
 }
 
 #timerBox {
     background: #E7F7E1;
-    width: 80px;
-    padding: 8px;
+    width: 90px;
+    padding: 10px;
     border-radius: 8px;
     margin: 20px auto;
     text-align: center;
 }
 
 #timer {
-    font-size: 22px;
+    font-size: clamp(18px, 4vw, 22px);
     font-weight: 700;
 }
 
@@ -114,7 +121,7 @@ footer {
     margin-top: 20px;
     padding: 20px;
     border-radius: 10px;
-    font-size: 22px;
+    font-size: clamp(18px, 4vw, 22px);
     font-weight: 500;
 }
 
@@ -128,14 +135,13 @@ footer {
     background: #fff;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: clamp(16px, 3.5vw, 20px);
     border: 2px solid transparent;
 }
 
 .option.correct {
     border-color: #35BD3A;
 }
-
 .option.wrong {
     border-color: red;
 }
@@ -151,25 +157,17 @@ footer {
     border-radius: 8px;
     border: none;
     color: #fff;
-    font-size: 22px;
+    font-size: clamp(18px, 4vw, 22px);
     cursor: pointer;
 }
 
-/* Timer background color states */
-.bg-green {
-    background: #E7F7E1 !important;
-}
-
-.bg-yellow {
-    background: #F7F5D9 !important;
-}
-
-.bg-red {
-    background: #F7D9D9 !important;
-}
+/* Timer states */
+.bg-green { background: #E7F7E1; }
+.bg-yellow { background: #F7F5D9; }
+.bg-red { background: #F7D9D9; }
 
 /* ---------------------------------------------------------
-   RESULT PAGE - LEVEL 1 BAR
+   RESULT PAGE
 --------------------------------------------------------- */
 
 #result {
@@ -179,7 +177,8 @@ footer {
 }
 
 .bar-container {
-    width: 80%;
+    width: 100%;
+    max-width: 600px;
     height: 40px;
     margin: 40px auto;
     background: #F8D8D8;
@@ -199,16 +198,42 @@ footer {
 }
 
 .score-percent {
-    font-size: 32px;
+    font-size: clamp(24px, 5vw, 32px);
     font-weight: 700;
     margin-top: 20px;
 }
 
 .feedback {
     margin-top: 15px;
-    font-size: 20px;
+    font-size: clamp(16px, 4vw, 20px);
 }
 
 .restart {
     margin-top: 40px;
+}
+
+/* ---------------------------------------------------------
+   MEDIA QUERIES
+--------------------------------------------------------- */
+
+@media (max-width: 480px) {
+    .start-btn {
+        height: 90px;
+    }
+    #timerBox {
+        width: 70px;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 768px) {
+    .start-btn {
+        max-width: 400px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .quiz-header {
+        justify-content: space-between;
+    }
 }
