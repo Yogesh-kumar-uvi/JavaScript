@@ -219,7 +219,6 @@ footer {
 @media (max-width: 480px) {
     .start-btn {
         height: 68px;
-       
     }
     #timerBox {
         width: 70px;

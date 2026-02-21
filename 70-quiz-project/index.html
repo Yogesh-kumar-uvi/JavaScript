@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickQlick</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Start Screen -->
+    <div class="start-screen active">
+        <div class="start-content">
+            <div class="start-image-container">
+                <img src="" alt="Quiz Time" class="start-image">
+            </div>
+            <button class="btn-start">Start Quiz</button>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div class="quiz-screen">
+        <header>
+            <h1 class="logo">QuickQlick</h1>
+            <svg class="volume-icon" viewBox="0 0 24 24" id="volume-icon">
+                <path
+                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+            </svg>
+        </header>
+
+        <div class="qs-count" id="qs-count" style="display: none;">
+            <span class="qs-answered">01</span> / <span class="total-qs">20</span>
+        </div>
+
+
+
+        <!-- Quiz Interface (initially hidden) -->
+        <div class="quiz-interface" id="quiz-interface" style="display: none;">
+            <div class="qs-bg">
+                <div class="qs-container">
+                    <!-- Question text injected here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="timer-bg" id="timer-bg" style="display: none;">
+            <div class="timer">00:<span>30</span></div>
+        </div>
+
+        <div class="options-container-bg" id="options-container-bg" style="display: none;">
+            <div class="options-container">
+                <div class="option option1">
+                    <span class="option-text"></span>
+                    <svg class="correct-ans-icon" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    <div class="wrong-ans-container">
+
+                        <svg class="wrong-ans-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="option option2">
+                    <span class="option-text"></span>
+                    <svg class="correct-ans-icon" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    <div class="wrong-ans-container">
+
+                        <svg class="wrong-ans-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="option option3">
+                    <span class="option-text"></span>
+                    <svg class="correct-ans-icon" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    <div class="wrong-ans-container">
+
+                        <svg class="wrong-ans-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="option option4">
+                    <span class="option-text"></span>
+                    <svg class="correct-ans-icon" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    <div class="wrong-ans-container">
+
+                        <svg class="wrong-ans-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="quiz-footer" style="display: none;">
+            <svg class="play-or-pause-btn" viewBox="0 0 24 24" id="play-pause-btn">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+
+            <div class="btn-next btn">Next ></div>
+            <div class="btn-see-your-result btn">See your result ></div>
+        </footer>
+
+    </div>
+
+    <!-- Result Screen -->
+    <div class="result-modal" id="result-modal">
+        <div class="result-content">
+            <div class="start-image-container" style="transform: scale(0.8);">
+                <img src="https://i.ibb.co/db0Cj52/Image.png" alt="Quiz Time" class="result-image">
+            </div>
+            <h2>Quiz Completed!</h2>
+            <p>Your Score:</p>
+            <div class="result-score" id="result-score">0/20</div>
+            <button class="btn-restart" onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
